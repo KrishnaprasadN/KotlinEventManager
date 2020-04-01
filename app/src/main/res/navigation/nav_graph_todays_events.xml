@@ -3,22 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/myEventsFragment">
+    app:startDestination="@id/todaysEventsFragmentSection">
 
     <fragment
-        android:id="@+id/todaysEventsFragment"
+        android:id="@+id/todaysEventsFragmentSection"
         android:name="com.devteam.eventmanager.ui.main.TodaysEventsFragment"
         android:label="@string/menu_today_events"
-        tools:layout="@layout/fragment_todays" />
-    <fragment
-        android:id="@+id/upcomingEventsFragment"
-        android:name="com.devteam.eventmanager.ui.upcoming.UpcomingEventsFragment"
-        android:label="@string/menu_upcoming_events"
-        tools:layout="@layout/fragment_upcoming_events" />
-    <fragment
-        android:id="@+id/myEventsFragment"
-        android:name="com.devteam.eventmanager.ui.myevents.MyEventsFragment"
-        android:label="MyEventsFragment" />
+        tools:layout="@layout/fragment_todays" >
+        <action
+            android:id="@+id/action_todaysEventsFragmentSection_to_eventDetailsFragment"
+            app:destination="@id/eventDetailsFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/eventDetailsFragment"
         android:name="com.devteam.eventmanager.ui.details.EventDetailsFragment"

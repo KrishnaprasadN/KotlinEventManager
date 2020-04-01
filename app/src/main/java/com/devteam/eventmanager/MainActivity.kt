@@ -13,8 +13,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        setupViews()
+    }
+
+    private fun setupViews() {
         val binding: MainActivityBinding = DataBindingUtil.setContentView(
             this, R.layout.main_activity
         )
@@ -23,17 +30,17 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
 
         // get nav host fragment
-        val host: NavHostFragment = supportFragmentManager
-            .findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment? ?: return
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.my_nav_host_fragment) as NavHostFragment
 
         // setup navigation controller to appbar mapping
         // this updates the action bar with required title, arrow based on nav destination
-        val navController = host.navController
+        navController = navHostFragment.navController
         val appBarConfiguration = setupAppbarConfig()
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         // setup the bottom nav item listener
-        setupBottomNavMenu(binding.bottomNavView, navController)
+        setupBottomNavMenu(binding.bottomNavigationView, navController)
     }
 
     private fun setupAppbarConfig(): AppBarConfiguration {
@@ -52,13 +59,12 @@ class MainActivity : AppCompatActivity() {
         bottomNav?.setOnNavigationItemSelectedListener {
             Toast.makeText(this, "Clicked - $it", Toast.LENGTH_SHORT).show()
             when (it.itemId) {
-                R.id.action_my_events -> navController.navigate(R.id.myEventsFragment)
-                R.id.action_todays_events -> navController.navigate(R.id.todaysEventsFragment)
-                R.id.action_upcoming_events -> navController.navigate(R.id.upcomingEventsFragment)
+                R.id.menu_my_events -> navController.navigate(R.id.myEventsFragment)
+                R.id.menu_todays_events -> navController.navigate(R.id.todaysEventsFragment)
+                R.id.menu_upcoming_events -> navController.navigate(R.id.upcomingEventsFragment)
             }
 
             true
         }
     }
-
 }

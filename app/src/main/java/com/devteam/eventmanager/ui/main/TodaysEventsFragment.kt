@@ -1,12 +1,13 @@
 package com.devteam.eventmanager.ui.main
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.devteam.eventmanager.R
+import com.devteam.eventmanager.databinding.FragmentTodaysBinding
 
 class TodaysEventsFragment : Fragment() {
 
@@ -16,15 +17,25 @@ class TodaysEventsFragment : Fragment() {
 
     private lateinit var viewModel: TodaysEventViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.fragment_todays, container, false)
+    private lateinit var binding: FragmentTodaysBinding
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_todays, container, false)
+        binding = FragmentTodaysBinding.inflate(inflater, view as ViewGroup, false)
+        return binding.root
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(TodaysEventViewModel::class.java)
-        // TODO: Use the ViewModel
+
+        binding.showDetails.setOnClickListener {
+            findNavController().navigate(R.id.eventDetailsFragment)
+        }
     }
 
 }
