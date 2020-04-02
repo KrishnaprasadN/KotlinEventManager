@@ -7,16 +7,28 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         tools:context=".ui.main.TodaysEventsFragment">
 
         <Button
             android:id="@+id/show_details"
             android:layout_width="409dp"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
             android:text="Show Details"
             tools:layout_editor_absoluteX="1dp"
             tools:layout_editor_absoluteY="418dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_event"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:src="@android:drawable/ic_input_add"
+            app:backgroundTint="@color/colorPrimary"
+            app:tint="@android:color/white" />
 
     </RelativeLayout>
 </layout>

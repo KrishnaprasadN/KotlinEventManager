@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_myEventsFragment2_to_eventDetailsFragment2"
             app:destination="@id/eventDetailsFragment2" />
+        <action
+            android:id="@+id/action_myEventsFragment2_to_addEventActivity"
+            app:destination="@id/addEventActivity" />
     </fragment>
 
     <fragment
@@ -19,4 +22,10 @@
         android:name="com.devteam.eventmanager.ui.details.EventDetailsFragment"
         android:label="event_details_fragment"
         tools:layout="@layout/event_details_fragment" />
+
+    <activity
+        android:id="@+id/addEventActivity"
+        android:name="com.devteam.eventmanager.ui.addevent.AddEventActivity"
+        android:label="AddEventActivity">
+    </activity>
 </navigation>

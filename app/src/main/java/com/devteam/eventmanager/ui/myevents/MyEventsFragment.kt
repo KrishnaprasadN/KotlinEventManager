@@ -30,5 +30,9 @@ class MyEventsFragment : Fragment() {
         binding.showDetails.setOnClickListener {
             findNavController().navigate(R.id.action_myEventsFragment2_to_eventDetailsFragment2)
         }
+
+        binding.addEvent.setOnClickListener {
+            findNavController().navigate(R.id.action_myEventsFragment2_to_addEventActivity)
+        }
     }
 }
