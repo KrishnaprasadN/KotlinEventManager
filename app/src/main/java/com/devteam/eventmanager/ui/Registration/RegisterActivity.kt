@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.devteam.eventmanager.MainActivity
 import com.devteam.eventmanager.R
 import com.devteam.eventmanager.databinding.ActivityRegisterBinding
+import com.devteam.eventmanager.ui.ExperimentMainActivity
 import com.devteam.eventmanager.utility.FirebaseStorageUtils
 import com.devteam.eventmanager.utility.SharedPreferences
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -19,12 +20,12 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.gms.tasks.Task
+import com.google.api.Experimental
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.storage.OnProgressListener
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.main_fragment.view.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
@@ -127,7 +128,8 @@ class RegisterActivity : AppCompatActivity() {
     private fun goToHomePage() {
         SharedPreferences().loogedIn(baseContext)
         val intent =
-            Intent(this@RegisterActivity, MainActivity::class.java)
+            Intent(this@RegisterActivity, ExperimentMainActivity::class.java)
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
         startActivity(intent)
         finish()
     }

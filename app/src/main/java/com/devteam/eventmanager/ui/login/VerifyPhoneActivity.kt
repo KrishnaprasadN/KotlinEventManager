@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.devteam.eventmanager.MainActivity
 import com.devteam.eventmanager.R
 import com.devteam.eventmanager.databinding.ActivityVerifyPhoneBinding
 import com.devteam.eventmanager.ui.Registration.RegisterActivity
@@ -134,6 +133,7 @@ class VerifyPhoneActivity : AppCompatActivity() {
                 //verification successful we will start the profile activity
                 mAuth.currentUser?.let {
                     val intent = Intent(this, RegisterActivity::class.java)
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(intent)
                     finish()
                 }

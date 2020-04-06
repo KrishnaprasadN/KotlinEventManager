@@ -10,8 +10,10 @@ import androidx.core.text.TextUtilsCompat
 import com.devteam.eventmanager.MainActivity
 import com.devteam.eventmanager.R
 import com.devteam.eventmanager.databinding.ActivityLoginBinding
+import com.devteam.eventmanager.ui.ExperimentMainActivity
 import com.devteam.eventmanager.ui.Registration.RegisterActivity
 import com.devteam.eventmanager.utility.SharedPreferences
+import com.google.api.Experimental
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -33,11 +35,13 @@ class LoginActivity : AppCompatActivity() {
         mAuth.currentUser?.let {
             when (SharedPreferences().isLoogedIn(baseContext)) {
                 true -> {
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, ExperimentMainActivity::class.java)
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(intent)
                 }
                 false -> {
                     val intent = Intent(this, RegisterActivity::class.java)
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
                     startActivity(intent)
 
                 }
