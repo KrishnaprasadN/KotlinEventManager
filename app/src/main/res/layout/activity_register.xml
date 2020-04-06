@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.Registration.RegisterActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="name"
+            type="String" />
+
+        <variable
+            name="uri"
+            type="android.net.Uri" />
+
+        <variable
+            name="registeringUser"
+            type="boolean" />
+
+        <variable
+            name="newUser"
+            type="boolean" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/appBarLayout"
+            android:visibility="@{registeringUser?View.INVISIBLE : View.VISIBLE , default = visible}">
+
+            <ImageView
+                android:id="@+id/profile_pic"
+                android:layout_width="@dimen/registration_pofile_pic"
+                android:layout_height="@dimen/registration_pofile_pic"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/hundred"
+                android:src="@drawable/user_default"
+                app:loadImage="@{uri}" />
+
+            <ImageView
+                android:id="@+id/upload_pic"
+                android:layout_width="@dimen/upload_pic_icon"
+                android:layout_height="@dimen/upload_pic_icon"
+                android:layout_below="@+id/profile_pic"
+                android:layout_alignRight="@+id/profile_pic"
+                android:onClick="uploadImage"
+                android:src="@android:drawable/ic_menu_camera" />
+
+            <EditText
+                android:id="@+id/user_name"
+                android:layout_width="@dimen/registration_feild"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/upload_pic"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/fifty"
+                android:hint="@string/enter_name"
+                android:text='@={name, default = "" }' />
+
+            <Button
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/user_name"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/default_margin"
+                android:onClick="register"
+                android:text="@{newUser? @string/register : @string/update}" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/register"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/default_margin"
+                android:onClick="skip"
+                android:text="@string/skip"
+                android:visibility="@{newUser?View.GONE : View.VISIBLE , default = gone}" />
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            app:visibility="@{registeringUser}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/progressBar"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/default_margin"
+            android:visibility="@{registeringUser?View.VISIBLE : View.GONE , default = gone}"
+            android:text="@string/updating"/>
+    </RelativeLayout>
+</layout><!--
+    app:visibility="@{registeringUser?View.VISIBLE : View.GONE , default = gone}"-->

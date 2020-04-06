@@ -1,0 +1,10 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="et_login_width">300dp</dimen>
+    <dimen name="default_margin" >10dp</dimen>
+    <dimen name="hundred">100dp</dimen>
+    <dimen name="fifty">50dp</dimen>
+    <dimen name="registration_feild">300dp</dimen>
+    <dimen name="registration_pofile_pic">200dp</dimen>
+    <dimen name="upload_pic_icon">30dp</dimen>
+</resources>
