@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.devteam.eventmanager.ui.addevent.AddEventViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.addevent.AddEventActivity">
+
+        <RelativeLayout
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/colorAccent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:text="Add Event">
+
+            </TextView>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/title"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Enter Title"
+                android:text="@={viewModel.title}" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Enter Description"
+                android:text="@={viewModel.des}" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Enter Category"
+                android:text="@={viewModel.category}" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Enter Date"
+                android:text="@={viewModel.date}" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Enter Start Time"
+                android:text="@={viewModel.start}" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Enter End Time"
+                android:text="@={viewModel.end}" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Enter Location"
+                android:text="@={viewModel.location}" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{(v) -> viewModel.addEvent()}"
+                android:text="Add Event" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+</layout>

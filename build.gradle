@@ -14,6 +14,7 @@ buildscript {
         coroutinesVersion = '1.3.5'
         image_picker = '1.7.1'
         image_picker_inline = '1.0.1'
+        navigationVersion = "2.1.0"
     }
 
     repositories {

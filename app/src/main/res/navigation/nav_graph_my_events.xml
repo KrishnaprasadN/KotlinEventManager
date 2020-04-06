@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_my_events"
+    app:startDestination="@id/myEventsFragmentSection">
+
+    <fragment
+        android:id="@+id/myEventsFragmentSection"
+        android:name="com.devteam.eventmanager.ui.myevents.MyEventsFragment"
+        android:label="MyEventsFragment">
+        <action
+            android:id="@+id/action_myEventsFragment2_to_eventDetailsFragment2"
+            app:destination="@id/eventDetailsFragment2" />
+        <action
+            android:id="@+id/action_myEventsFragment2_to_addEventActivity"
+            app:destination="@id/addEventActivity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/eventDetailsFragment2"
+        android:name="com.devteam.eventmanager.ui.details.EventDetailsFragment"
+        android:label="event_details_fragment"
+        tools:layout="@layout/event_details_fragment" />
+
+    <activity
+        android:id="@+id/addEventActivity"
+        android:name="com.devteam.eventmanager.ui.addevent.AddEventActivity"
+        android:label="AddEventActivity">
+    </activity>
+</navigation>
