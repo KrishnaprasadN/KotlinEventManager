@@ -51,7 +51,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$life_version"
 
     // firebase
-    implementation "com.google.firebase:firebase-firestore:$firestore_version"
+    implementation "com.google.firebase:firebase-firestore-ktx:$firestore_version"
 
     //navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"

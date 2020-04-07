@@ -2,9 +2,14 @@ package com.devteam.eventmanager.ui.addevent
 
 import android.util.Log
 import androidx.databinding.Bindable
-
+import androidx.lifecycle.MutableLiveData
 import com.devteam.eventmanager.common.ObservableViewModel
 import com.devteam.eventmanager.model.Event
+import com.devteam.eventmanager.utils.FirestoreUtils
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+
 
 class AddEventViewModel : ObservableViewModel() {
 
@@ -16,6 +21,13 @@ class AddEventViewModel : ObservableViewModel() {
     var start: String = ""
     var end: String = ""
     var location: String = ""
+
+    // Firestore reference
+    val mFirestore: FirebaseFirestore by lazy {
+        Firebase.firestore
+    }
+
+    val onFinish = MutableLiveData<Boolean>()
 
     @Bindable
     fun getEventTitle(): String {
@@ -104,15 +116,25 @@ class AddEventViewModel : ObservableViewModel() {
     }
 
     fun addEvent() {
-        Log.d("KP", "*** Add Event " +
-                "title is $title" +
-                " desc is $des " +
-                " category is $category " +
-                " date is $date " +
-                " start is $start " +
-                " end is $end " +
-                " location is $location "
-         )
+        Log.d(
+            "KP", "*** Add Event " +
+                    "title is $title" +
+                    " desc is $des " +
+                    " category is $category " +
+                    " date is $date " +
+                    " start is $start " +
+                    " end is $end " +
+                    " location is $location "
+        )
+
+        // create the event
+        var event = Event(title, des, category, date, start, end, location)
+
+        // add the event
+        FirestoreUtils.addEvent(mFirestore, event)
+
+        onFinish.value = true
     }
+
 }
 
