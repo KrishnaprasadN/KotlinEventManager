@@ -5,6 +5,8 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -52,7 +54,19 @@ dependencies {
 
     // firebase
     implementation "com.google.firebase:firebase-firestore-ktx:$firestore_version"
+    implementation 'com.google.android.material:material:1.1.0'
 
+
+    implementation "com.google.firebase:firebase-auth:$firbase_auth_version"
+
+    implementation "com.github.dhaval2404:imagepicker:$image_picker"
+    implementation "com.github.florent37:inline-activity-result-kotlin:$image_picker_inline"
+
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    implementation "com.google.firebase:firebase-storage-ktx:$firbase_storage"
+    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     //navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.navigationVersion"
     implementation "androidx.navigation:navigation-ui-ktx:$rootProject.navigationVersion"

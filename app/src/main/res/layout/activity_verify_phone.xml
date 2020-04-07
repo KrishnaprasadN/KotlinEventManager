@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.login.VerifyPhoneActivity">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="phoneVerficationCode"
+            type="String" />
+        <variable
+            name="codeSentToPhone"
+            type="boolean" />
+        <variable
+            name="verifyingUser"
+            type="boolean" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:theme="@style/AppTheme.AppBarOverlay">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <TextView
+            android:id="@+id/info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/verification_code_sending"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:textStyle="bold"
+            android:visibility="@{codeSentToPhone?View.GONE : View.VISIBLE , default = visible}"
+            android:layout_marginTop="@dimen/hundred"/>
+
+
+        <EditText
+            android:id="@+id/verfication_Code"
+            android:layout_width="@dimen/et_login_width"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_verification_code"
+            android:inputType="phone"
+            android:layout_centerInParent="true"
+            android:text='@={phoneVerficationCode,default=""}'/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/verfication_Code"
+            android:visibility="@{codeSentToPhone?View.VISIBLE : View.GONE, default = gone }"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/default_margin"
+            android:onClick="verify"
+            android:text="@string/verify" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{verifyingUser?View.VISIBLE : View.GONE , default = gone}"
+            android:layout_centerInParent="true"/>
+
+
+
+    </RelativeLayout>
+</layout>
