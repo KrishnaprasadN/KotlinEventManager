@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.devteam.eventmanager.R
 import com.devteam.eventmanager.databinding.ActivityVerifyPhoneBinding
-import com.devteam.eventmanager.ui.Registration.RegisterActivity
+import com.devteam.eventmanager.ui.registration.RegisterActivity
 import com.google.android.gms.tasks.TaskExecutors
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth

@@ -16,7 +16,7 @@
         <activity android:name=".ui.ExperimentMainActivity">
         </activity>
         <activity
-            android:name=".ui.Registration.RegisterActivity"
+            android:name=".ui.registration.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".ui.login.VerifyPhoneActivity"

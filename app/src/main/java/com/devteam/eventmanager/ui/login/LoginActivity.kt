@@ -2,18 +2,13 @@ package com.devteam.eventmanager.ui.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.text.TextUtilsCompat
-import com.devteam.eventmanager.MainActivity
 import com.devteam.eventmanager.R
 import com.devteam.eventmanager.databinding.ActivityLoginBinding
 import com.devteam.eventmanager.ui.ExperimentMainActivity
-import com.devteam.eventmanager.ui.Registration.RegisterActivity
+import com.devteam.eventmanager.ui.registration.RegisterActivity
 import com.devteam.eventmanager.utility.SharedPreferences
-import com.google.api.Experimental
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 

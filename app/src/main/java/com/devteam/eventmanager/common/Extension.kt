@@ -1,4 +1,4 @@
-package com.devteam.eventmanager.comman
+package com.devteam.eventmanager.common
 
 import android.net.Uri
 import android.widget.ImageView
